@@ -1,0 +1,12 @@
+-- CONFIGURATION
+INSERT INTO TA_GLOBAL_CONFIGURATION(first_configured) VALUES(true);
+-- VIRTUAL MACHINE TYPE COMMAND
+INSERT INTO TA_VIRTUAL_MACHINE_TYPE_COMMAND(ID_VIRTUAL_MACHINE_TYPE_COMMAND, command_value) VALUES('docker-machine-create', 'docker-machine create');
+-- VIRTUAL MACHINE TYPE COMMAND ARG
+INSERT INTO TA_VIRTUAL_MACHINE_TYPE_COMMAND_ARG(arg_name, arg_value, ID_VIRTUAL_MACHINE_TYPE_COMMAND) VALUES('--driver', '"hyperv"', 'docker-machine-create');
+INSERT INTO TA_VIRTUAL_MACHINE_TYPE_COMMAND_ARG(arg_name, arg_value, ID_VIRTUAL_MACHINE_TYPE_COMMAND) VALUES('--hyperv-memory', '"1024"', 'docker-machine-create');
+INSERT INTO TA_VIRTUAL_MACHINE_TYPE_COMMAND_ARG(arg_name, arg_value, ID_VIRTUAL_MACHINE_TYPE_COMMAND) VALUES('--hyperv-disk-size', '"10000"', 'docker-machine-create');
+-- VIRTUAL MACHINE TYPE
+INSERT INTO TA_VIRTUAL_MACHINE_TYPE(name, ID_VIRTUAL_MACHINE_TYPE_COMMAND) VALUES('docker-machine', 'docker-machine-create');
+-- VIRTUAL MACHINE
+INSERT INTO TA_VIRTUAL_MACHINE(name, id_virtual_machine_type) VALUES('virtualMachineTest1', 1);
